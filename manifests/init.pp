@@ -33,8 +33,8 @@ class mongodb(
 
   exec { "10gen-apt-repo":
     path => "/bin:/usr/bin",
-    command => "echo '${repository}' >> /etc/apt/sources.list",
-    unless => "cat /etc/apt/sources.list | grep 10gen",
+    command => "echo '${repository}' >> /etc/apt/sources.list.d/10gen.list",
+    unless => "cat /etc/apt/sources.list.d/10gen.list | grep 10gen",
     require => Exec["10gen-apt-key"],
   }
 
